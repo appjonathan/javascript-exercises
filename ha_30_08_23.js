@@ -75,3 +75,21 @@
 //    }
 //    console.log(output);
 //  }
+
+// Diese Funktion verwendet die map()-Funktion, um ein neues Array laengen zu erstellen, das die Länge jedes Worts in der Eingabeliste enthält. Anschließend wird die reduce()-Funktion verwendet, um die Summe aller Längen im Array zu berechnen. Die Funktion gibt die Gesamtsumme der Längen zurück.
+function berechneSummeDerLaengen(woerter) {
+    // Verwende die map-Funktion, um die Länge jedes Worts zu berechnen
+    const laengen = woerter.map((wort) => wort.length);
+  
+    // Verwende die reduce-Funktion, um die Summe der Längen zu berechnen
+    const summe = laengen.reduce((akkumulator, laenge) => akkumulator + laenge, 0);
+  
+    return summe;
+  }
+  
+  // Beispielaufruf
+  const eingabe = ['Rosine', 'Traube', 'Annanas'];
+  const ausgabe = berechneSummeDerLaengen(eingabe);
+  console.log(ausgabe); 
+  
+  // Ausgabe: 19
