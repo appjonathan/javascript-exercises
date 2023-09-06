@@ -1,0 +1,67 @@
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+      - name: Node.js with node_modules cache
+      # You may pin to the exact commit or the version.
+      # uses: magnetikonline/    action-node-modules-cache@0b4ad87d575ee27fac4196064d478a9de926cfe3
+        uses: magnetikonline/action-node-modules-cache@v1
+        with:
+          # Desired Node.js version.
+          node-version: 20.5.1 # optional
+          # Read desired Node.js version from file. Use in place of `node-version`  input.
+          node-version-file: # optional
+          # Path to node_modules directory(s) for caching.
+          node-modules-path: # optional, default is node_modules
+          # Optional path(s) to be included alongside the node_modules cache artifact.
+          additional-cache-path: ../package-lock.json # optional
+          # Path to package-lock.json file(s) for caching key hash.
+          package-lock-path: # optional, default is package-lock.json
+          # Optional cache key suffix.
+          cache-key-suffix: # optional
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
