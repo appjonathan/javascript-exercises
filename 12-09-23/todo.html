@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Meine Todo App</title>
+        <title>Jonathans todo-list</title>
         <meta charset="utf-8">
     </head>
     <style>
@@ -9,21 +9,26 @@
         }
     </style>
     <body>
-       <h1>Meine Todo App</h1> 
+       <h1>Jonathans todo-list</h1> 
        <div><!-- Dieser div ist leer--></div>
     <div class="todo-list">
         <ul id="todo">
-            <li>Einkaufen gehen
-                <button>x</button>
+            <li>
+                Einkaufen
             </li>
             <li>
-                Auto waschen gehen
-                <button>x</button>
+                Aufräumen
             </li>
-            <!-- <li>hier muss meine todo auftauchen</li> -->
+            <li>
+                Wäsche
+            </li>
+            <li>
+                Träumen
+            </li>
+            <!-- <li> weitere todos auflisten </li> -->
         </ul>
         <form action="">
-            <input id="todoName" type="text" size="60" placeholder="Deine todo für eintragen">
+            <input id="todoName" type="text" size="60" placeholder="todo hinzufügen">
             <input onclick="handleClick()" type="button" value="Todo hinzufügen">
         </form>
     </div>
@@ -34,7 +39,7 @@
             const todo = document.querySelector("#todo")
 
             const li = document.createElement("li")
-            li.textContent = value //"Dummy not real -> Neue Todo hier" 
+            li.textContent = value   
 
             todo.appendChild(li)
         }

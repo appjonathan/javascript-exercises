@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farbänderung</title>
+    <script>
+        function changeColor() {
+            let color = document.getElementById("colorInput").value;
+            let heading = document.getElementById("heading");
+            heading.style.color = color;
+        }
+    </script>
+</head>
+<body>
+    <h1 id="heading">HA 12.09.23 Jonathan Epp</h1>
+    <input type="text" id="colorInput" placeholder="Farbe eingeben (engl.)">
+    <button onclick="changeColor()">OK</button>
+</body>
+</html>
