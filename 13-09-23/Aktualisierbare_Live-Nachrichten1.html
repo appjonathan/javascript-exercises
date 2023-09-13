@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aktualisierbare Live-Nachrichten</title>
+</head>
+<body>
+  <h1>Jonathans Live-Nachrichten</h1>
+  
+  <label for="category">Kategorie:</label>
+  <select id="category">
+    <option value="technology">Technology</option>
+    <option value="sports">Sport</option>
+    <option value="entertainment">Unterhaltung</option>
+    <option value="economy">Wirtschaft</option>
+  </select>
+  
+  <div id="news-container"></div>
+  
+  <script>
+    // Warten, bis das DOM vollständig geladen ist
+    document.addEventListener("DOMContentLoaded", function() {
+      // Nachrichtenkategorie auswählen
+      let categorySelect = document.getElementById("category");
+      let newsContainer = document.getElementById("news-container");
+      
+      // Funktion zum Abrufen der Nachrichten
+      function getNews(category) {
+        // AJAX-Anfrage erstellen
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://newsapi.org/v2/top-headlines?country=de&category=" + category + "&apiKey=e58b6c2536ab4ceaa0934fb46271f770", true);
+        
+        // AJAX-Anfrage abschicken
+        xhr.send();
+        
+        // AJAX-Antwort verarbeiten
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            let response = JSON.parse(xhr.responseText);
+            
+            // Nachrichten anzeigen
+            newsContainer.innerHTML = "";
+            response.articles.forEach(function(article) {
+              let newsItem = document.createElement("div");
+              newsItem.innerHTML = "<h2>" + article.title + "</h2><p>" + article.description + "</p><a href='" + article.url + "'>Weiterlesen</a>";
+              newsContainer.appendChild(newsItem);
+            });
+          }
+        };
+      }
+      
+      // Nachrichten initial abrufen
+      getNews(categorySelect.value);
+      
+      // Nachrichten alle 30 Sekunden aktualisieren
+      setInterval(function() {
+        getNews(categorySelect.value);
+      }, 30000);
+      
+      // Event-Listener für die Auswahl der Nachrichtenkategorie
+      categorySelect.addEventListener("change", function() {
+        getNews(categorySelect.value);
+      });
+    });
+  </script>
+</body>
+</html>
