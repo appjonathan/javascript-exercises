@@ -74,7 +74,7 @@ function raiseIncome(department, amount) {
 //TODO: 6. Funktion doubleBossIncome
 function doubleBossIncome(department) {
   let boss = department.employees.find(employee => employee.name === department.boss);
-  boss.salary *= 2;
+  boss.salary = 2;
 }
 
 //TODO: 7. Funktion averageIncome
