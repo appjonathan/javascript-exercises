@@ -47,7 +47,7 @@ allEmployees.push(new Employee(finance, "Andreas Armschlucker", 29500));
 allEmployees.push(new Employee(finance, "Roman Relativarm", 30400));
 allEmployees.push(new Employee(it, "Ingo Internet", 2500000));
 // TODO: 2. Füge mindestens je 3 neue Angestellte bei hr und marketing, sowie eurem department hinzu.
-allEmployees.push(new Employee(hr, "Albrecht Basgeier", 350003));
+allEmployees.push(new Employee(hr, "Albrecht Gasgeier", 350003));
 allEmployees.push(new Employee(hr, "Albrecht Casgeier", 350002));
 allEmployees.push(new Employee(hr, "Albrecht Dasgeier", 350001));
 allEmployees.push(new Employee(marketing, "Magnus AcMamakind", 235003));
