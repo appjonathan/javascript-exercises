@@ -1,0 +1,14 @@
+{
+  "name": "18-09-23",
+  "version": "1.0.0",
+  "description": "HA 18-09-23",
+  "main": "figlet-instalation.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0"
+  }
+}
