@@ -7,20 +7,30 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const form = `
+<style>
+    body {
+        background-color: green;
+    }
+</style>
+<h1>Anmeldung</h1>
 <form method="post" action="/login">
     <label for="name">Name:</label>
     <input name="name" type="text">
     <label for="pw">Passwort:</label>
     <input name="pw" type="password">
-    <button type="submit">Login</button>
+    <button type="submit">anmelden</button>
 </form>
+<button onclick="location.href='/register'">Register</button>
 `;
-//const user = [
-//  {name: "Lukas", passwort: "123"},
-//  {name: "Bartek", passwort: "321"},
-//  {name: "Abi", passwort: "Banane"}
-//]
+
 const registerForm = `
+<style>
+    body {
+        background-color: blue;
+
+    }
+</style>
+<h1>Register</h1>
 <form method="post" action="/register">
     <label for="name">Name:</label>
     <input name="name" type="text">
@@ -28,8 +38,9 @@ const registerForm = `
     <input name="pw" type="password">
     <label for="pwRepeat">Passwort wiederholen:</label>
     <input name="pwRepeat" type="password">
-    <button type="submit">Registrieren</button>
+    <button type="submit">registrieren</button>
 </form>
+<button onclick="location.href='/'">Anmeldung</button>
 `;
 
 function saveUsers(users) {
