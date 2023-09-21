@@ -27,7 +27,6 @@ const registerForm = `
 <style>
     body {
         background-color: blue;
-
     }
 </style>
 <h1>Register</h1>
@@ -128,5 +127,5 @@ app.post("/login", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("Server hört auf Port", port);
+    console.log(`Server läuft auf Port ${port}`);
 });
