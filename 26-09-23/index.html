@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do-App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>To-Do-App</h1>
+
+  <!-- Anmeldeformular -->
+  <form id="login-form">
+    <input type="text" id="username" placeholder="Benutzername" required>
+    <input type="password" id="password" placeholder="Passwort" required>
+    <button type="submit">Anmelden</button>
+  </form>
+
+  <!-- Aufgabenerfassungsformular -->
+  <form id="todo-form">
+    <input type="text" id="title" placeholder="Titel" required>
+    <textarea id="description" placeholder="Beschreibung"></textarea>
+    <button type="submit">Aufgabe hinzufügen</button>
+  </form>
+
+  <!-- Aufgabenliste -->
+  <ul id="todo-list"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
