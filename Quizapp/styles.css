@@ -1,0 +1,539 @@
+/* Grundlegende Container-Styles */
+.container {
+    width: 100%; /* Breite des Containers 100% des Elternelements */
+    margin-left: auto; /* Zentriert den Container horizontal */
+    margin-right: auto;
+    padding-left: 0.5rem; /* Innerer Abstand links von 0.5 Einheiten */
+    padding-right: 0.5rem; /* Innerer Abstand rechts von 0.5 Einheiten */
+}
+
+/* Media Query für Geräte mit einer Mindestbreite von 475px */
+@media (min-width: 475px) {
+    .container {
+      max-width: 475px; /* Setzt die maximale Breite des Containers */
+    }
+}
+
+/* Media Query für Geräte mit einer Mindestbreite von 640px */
+@media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+}
+
+/* Media Query für Geräte mit einer Mindestbreite von 768px */
+@media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+}
+
+/* Media Query für Geräte mit einer Mindestbreite von 1024px */
+@media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+}
+
+/* Media Query für Geräte mit einer Mindestbreite von 1280px */
+@media (min-width: 1280px) {
+    .container {
+    max-width: 1280px;
+  }
+}
+
+/* Import von externen Schriftarten */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Varela+Round&display=swap');
+
+/* Allgemeine Stilsetzungen für alle Elemente und deren Pseudo-Elemente */
+*,*::before,*::after{
+    box-sizing:border-box; /* Verpackungsmodell festlegen */
+    margin:0; /* Entfernt den Standardaußenabstand */
+    padding:0; /* Entfernt den Standardinnenabstand */
+    -webkit-tap-highlight-color:transparent; /* Entfernt das Standard-Highlighting beim Tippen in Webkit-Browsern */
+}
+
+/* Stilsetzungen für das body-Element */
+body {
+    background:#007bff; /* Setzt den Hintergrund blau */
+}
+
+/* Stil für body mit der Klasse 'right' */
+body.right{
+    background:#028a0f; /* Grün als Hintergrund */
+}
+
+/* Stil für body mit der Klasse 'wrong' */
+body.wrong{
+    background:#900603; /* Rot als Hintergrund */
+}
+
+/* Grundstile für die Start-, Info-, Quiz- und Ergebnisboxen */
+.start, .info-box, .quiz-box, .result-box{
+    position:absolute; /* Absolut positioniert */
+    top:50%; /* Zentriert die Boxen vertikal */
+    left:50%; /* Zentriert die Boxen horizontal */
+    transform:translate(-50%, -50%); /* Feinabstimmung für die Zentrierung */
+    box-shadow:0px 4px 8px 0px rgba(0,0,0,0.2), 0px 3px 20px 0px rgba(0,0,0,0.4); /* Schattenwurf für die Boxen */
+    font-family:'Varela Round', sans-serif; /* Schriftart festlegen */
+    transition:all 0.3s ease; /* Übergangseffekte */
+}
+
+.start button{
+    font-size:25px;
+    font-weight:500;
+    padding:15px 30px;
+    color:#258eff;
+    outline:none;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    background:#fff;
+    font-family:'Varela Round', sans-serif;
+}
+.start:hover{
+    box-shadow:none;
+}
+.info-box.activeInfo{
+    opacity:1;
+    z-index:5;
+    pointer-events:auto;
+    transform:translate(-50% , -50%) scale(1);
+}
+.info-box {
+    width:350px;
+    background:#fff;
+    border-radius:8px;
+    opacity:0;
+    pointer-events:none;
+    transform:translate(-50% , -50%) scale(0.9);
+    padding:0 5px;
+}
+.info-box .info-title{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 20px;
+    font-weight:600;
+    height:60px;
+    width:100%;
+    font-size:20px;
+    border-bottom:1px solid lightgrey;
+}
+.info-box .info-list{
+    padding:15px 20px;
+}
+.info-box .info-list .info{
+    margin:5px 0;
+}
+.info-box .info-list .info span{
+    font-weight:600;
+    color:#007bff;
+}
+.info-box .buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 15px;
+    height:60px;
+    border-top:1px solid lightgrey;
+}
+.info-box .buttons button{
+    margin:0 5px;
+    border:1px solid transparent ;
+    font-size:16px;
+    font-weight:500;
+    height:40px;
+    width:100px;
+    color:#fff;
+    border-radius:5px;
+    font-family:'Varela Round', sans-serif;
+    transition:all 0.25s ease;
+}
+
+/* Stil für den "Quit"-Button in der Info-Box */
+.info-box .buttons button.quit{
+    background:#fff;                  /* Weißer Hintergrund */
+    border:1px solid #007bff;         /* Blauer Rand */
+    color:#007bff;                    /* Blaue Schriftfarbe */
+}
+
+/* Stil für den "Quit"-Button in der Info-Box beim Darüberfahren */
+.info-box .buttons button.quit:hover{
+    background:#007bff;               /* Blauer Hintergrund */
+    color:#fff;                       /* Weiße Schriftfarbe */
+}
+
+/* Stil für den "Continue"-Button in der Info-Box */
+.info-box .buttons button.cont{
+    background-color:#007bff;         /* Blauer Hintergrund */
+    color:#fff;                       /* Weiße Schriftfarbe */
+}
+
+/* Stil für den "Continue"-Button in der Info-Box beim Darüberfahren */
+.info-box .buttons button.cont:hover{
+    background:#258eff;               /* Heller blauer Hintergrund */
+}
+
+/* Stil für die aktive Quiz-Box */
+.quiz-box.activeQuiz{
+    opacity:1;                        /* Vollständig sichtbar */
+    z-index:5;                        /* Legt die Ebene über anderen Elementen fest */
+    pointer-events:auto;              /* Erlaubt Klicks und andere Eingaben */
+    transform:translate(-50% , -50%) scale(1); /* Zentriert und skaliert auf normale Größe */
+}
+
+/* Grundstil für die Quiz-Box */
+.quiz-box{
+    width:350px;                      /* Breite */
+    border-radius:5px;                /* Abgerundete Ecken */
+    background:#fff;                  /* Weißer Hintergrund */
+    opacity:0;                        /* Standardmäßig unsichtbar */
+    pointer-events:none;              /* Keine Klicks oder andere Eingaben erlaubt */
+    transform:translate(-50% , -50%) scale(1); /* Zentriert und in normaler Größe */
+}
+
+/* Stil für die "Oops"-Animation */
+.oops{
+    animation:shake 0.25s 2;          /* Verwendet die "Shake"-Animation, dauert 0.25s und wiederholt sich 2 Mal */
+}
+
+/* Definition der "Shake"-Animation */
+@keyframes shake{
+    0%, 90%, 100%{                    /* Start, fast Ende und Ende der Animation */
+        transform:translate(-50% , -50%) scale(1); /* Normale Position und Größe */
+    }
+    50%{                              /* Mitte der Animation */
+        transform:translate(-51% , -50%) scale(1); /* Ein bisschen nach links verschoben */
+    }
+}
+
+/* Stil für den Kopfbereich der Quiz-Box */
+.quiz-box header{
+    height:60px;                      /* Höhe */
+    position:relative;                /* Relative Positionierung für innere absolute positionierte Elemente */
+    z-index:99;                       /* Legt die Ebene über anderen Elementen fest */
+    padding:0 20px;                   /* Innenabstand */
+    background:#fff;                  /* Weißer Hintergrund */
+    display:flex;                     /* Flexbox-Layout */
+    justify-content:space-between;    /* Verteilt die inneren Elemente gleichmäßig im Container */
+    align-items:center;               /* Zentriert Inhalt vertikal */
+    border-radius:5px 5px 0 0;        /* Abgerundete obere Ecken */
+    box-shadow:0 3px 5px 1px rgba(0,0,0,0.1); /* Leichter Schatten unten */
+}
+
+/* Stil für den Titel im Kopfbereich der Quiz-Box */
+.quiz-box header .title{
+    font-size:20px;                   /* Schriftgröße */
+    font-weight:600;                  /* Schriftgewicht */
+}
+
+/* Stil für den Timer im Kopfbereich der Quiz-Box */
+.quiz-box header .timer{
+    display:flex;                     /* Flexbox-Layout */
+    justify-content:space-between;    /* Verteilt die inneren Elemente gleichmäßig im Container */
+    align-items:center;               /* Zentriert Inhalt vertikal */
+    background:#cce5ff;              /* Hellblauer Hintergrund */
+    width:125px;                      /* Breite */
+    height:40px;                      /* Höhe */
+    border-radius:5px;                /* Abgerundete Ecken */
+    padding:0 8px;                    /* Innenabstand */
+    border:1px solid #bad8ff;         /* Heller blauer Rand */
+}
+
+/* Stil für den Text im Timer */
+.quiz-box header .timer .text{
+    font-size:14px;                   /* Schriftgröße */
+    font-weight:400;                  /* Schriftgewicht */
+    user-select:none;                 /* Verhindert, dass der Benutzer den Text auswählen kann */
+}
+
+/* Stil für die Sekundenanzeige im Timer */
+.quiz-box header .timer .sec{
+    font-size:15px;                   /* Schriftgröße */
+    height:30px;                      /* Höhe */
+    font-weight:500;                  /* Schriftgewicht */
+    color:#fff;                       /* Weiße Schriftfarbe */
+    background:#343a40;               /* Dunkelgrauer Hintergrund */
+    width:40px;                       /* Breite */
+    border-radius:5px;                /* Abgerundete Ecken */
+    line-height:30px;                 /* Zeilenhöhe, zentriert den Text vertikal */
+    text-align:center;                /* Zentriert den Text horizontal */
+    user-select:none;                 /* Verhindert, dass der Benutzer den Text auswählen kann */
+    border:1px solid #343a40;         /* Dunkelgrauer Rand */
+    font-family:'Courier Prime', sans-serif; /* Schriftart */
+}
+
+/* Stil für die Zeitleiste im Kopfbereich */
+.quiz-box header .timeline{
+    position:absolute;                /* Absolute Positionierung */
+    bottom:0;                         /* Unten im Container */
+    left:0;                           /* Am linken Rand des Containers */
+    height:3px;                       /* Höhe */
+    background:#007bff;               /* Blauer Hintergrund */
+    border-radius:0 5px 5px 0;        /* Abgerundete rechte Ecken */
+}
+
+/* Grün für die richtige Zeitleiste */
+.quiz-box header .timeline.right{
+    background:#028a0f;               /* Grüner Hintergrund */
+}
+
+/* Rot für die falsche Zeitleiste */
+.quiz-box header .timeline.wrong{
+    background:#900603;               /* Roter Hintergrund */
+}
+
+/* Stil für den Abschnittsbereich der Quiz-Box */
+.quiz-box section{
+    padding:20px 30px 15px 30px;      /* Innenabstand */
+    background:#fff;                  /* Weißer Hinter
+
+grund */
+}
+
+/* Stil für die Frage im Abschnittsbereich */
+.quiz-box section .question{
+    font-size:23px;                   /* Schriftgröße */
+    font-weight:600;                  /* Schriftgewicht */
+}
+
+/* Stil für die Optionsliste */
+.quiz-box section .option-list{
+    padding:15px 0;                   /* Innenabstand oben und unten */
+    display:block;                    /* Als Blockelement anzeigen */
+    transition:all 0.3s ease;         /* Übergang für alle Eigenschaften mit einer Dauer von 0,3s */
+}
+
+/* Stil für jede Option in der Liste */
+ section .option-list .option{
+    border:1px solid #84c5fe;         /* Heller blauer Rand */
+    background:aliceblue;             /* Hintergrund in "Aliceblue" */
+    border-radius:5px;                /* Abgerundete Ecken */
+    padding:8px 15px;                 /* Innenabstand */
+    margin-bottom:10px;               /* Außenabstand nach unten */
+    font-size:14px;                   /* Schriftgröße */
+    display:flex;                     /* Flexbox-Layout */
+    justify-content:space-between;    /* Verteilt die inneren Elemente gleichmäßig im Container */
+    align-items:center;               /* Zentriert Inhalt vertikal */
+    cursor:pointer;                   /* Zeigt den Zeiger als Hand an */
+    transition:all 0.3s ease;         /* Übergang für alle Eigenschaften mit einer Dauer von 0,3s */
+}
+
+ /*section .option-list .option:hover{
+    background:transparent;
+    color:#004085;
+    border:1px solid #b8daff;
+}*/
+/* Entfernt den unteren Außenabstand für das letzte Element in der Optionsliste */
+.option-list .option:last-child{
+    margin-bottom:0px;
+}
+
+/* Grundstil für das Icon einer Option */
+.option-list .option .icon{
+    height:18px;
+    width:18px;
+    border-radius:50%;               /* Rundes Design */
+    text-align:center;               /* Horizontale Zentrierung des Icons/Textes */
+    border:2px solid transparent;    /* Transparenter Rand */
+    line-height:16px;                /* Vertikale Zentrierung des Icons/Textes */
+    font-size:10px;
+    pointer-events:none;             /* Deaktiviert Klicks und andere Eingaben */
+}
+
+/* Stil für das "Richtig"-Icon einer Option */
+.option-list .option .icon.tick{
+    color:#23903c;                  /* Grüne Farbe */
+    border-color:#23903c;           /* Grüner Rand */
+    background:#d4edda;             /* Hintergrund in hellem Grün */
+}
+
+/* Stil für das "Falsch"-Icon einer Option */
+.option-list .option .icon.wrong{
+    color:#a42834;                  /* Rote Farbe */
+    border-color:#a42834;           /* Roter Rand */
+    background:#f8d7da;             /* Hintergrund in hellem Rot */
+}
+
+/* Stil für eine korrekt beantwortete Option */
+.option-list .option.correct{
+    color:#155724;                  /* Dunkelgrüne Schriftfarbe */
+    background:#d4edda;             /* Hintergrund in hellem Grün */
+    border-color:#c3e6cb;           /* Hellgrüner Rand */
+}
+
+/* Stil für eine falsch beantwortete Option */
+.option-list .option.incorrect{
+    color:#721c24;                  /* Dunkelrote Schriftfarbe */
+    background:#f8d7da;             /* Hintergrund in hellem Rot */
+    border-color:#f5c6cb;           /* Hellroter Rand */
+}
+
+/* Deaktiviert Klicks und andere Eingaben für deaktivierte Optionen */
+.option-list .option.disabled{
+    pointer-events:none;
+}
+
+/* Grundstil für den Fußbereich der Quiz-Box */
+.quiz-box footer{
+    height:60px;
+    width:100%;                      /* Volle Breite des Containers */
+    display:flex;                    /* Flexbox-Layout */
+    justify-content:space-between;   /* Elemente gleichmäßig im Container verteilt */
+    align-items:center;              /* Inhalt vertikal zentriert */
+    padding:0 20px;
+    border-top:1px solid lightgrey;  /* Graue obere Grenzlinie */
+}
+
+/* Stil für die Anzeige der Gesamtanzahl der Fragen im Fußbereich */
+.quiz-box footer .total-questions span{
+    display:flex;
+    user-select:none;                /* Verhindert das Auswählen von Text */
+}
+
+/* Stil für den Text, der die Gesamtanzahl der Fragen anzeigt */
+footer .total-questions span p{
+    font-weight:600;
+    font-size:17px;
+    padding:0 5px;
+}
+
+/* Spezieller Stil für den ersten Absatz (Textelement) der Gesamtanzahl der Fragen */
+footer .total-questions span p:first-child{
+    padding-left:0px;
+}
+
+/* Grundstil für die "Nächste"-Schaltfläche im Fußbereich */
+footer .next{
+    display:none;                    /* Standardmäßig nicht sichtbar */
+    font-size:16px;
+    padding:0px 13px;
+    height:35px;
+    font-size:17px;
+    font-weight:400;
+    border:1px solid #258eff;
+    border-radius:5px;               /* Abgerundete Ecken */
+    background:#258eff;              /* Blauer Hintergrund */
+    color:#fff;                      /* Weiße Schriftfarbe */
+    outline:none;
+    cursor:pointer;                  /* Zeigt den Zeiger als Hand an */
+    transition:all 0.25s ease;       /* Glatter Übergang für alle Eigenschaften */
+    font-family:'Varela Round', sans-serif;
+}
+
+/* Stil für die "Nächste"-Schaltfläche im Fußbereich beim Darüberfahren */
+footer .next:hover{
+    background:#0263ca;
+}
+
+/* Stil für die aktive Ergebnis-Box */
+.result-box.activeResult{
+    opacity:1;                       /* Vollständig sichtbar */
+    z-index:5;
+    pointer-events:auto;             /* Erlaubt Klicks und andere Eingaben */
+    transform:translate(-50% , -50%) scale(1);  /* Zentriert und in normaler Größe */
+}
+
+/* Grundstil für die Ergebnis-Box */
+.result-box{
+    background:#fff;
+    padding:10px 5px;
+    width:350px;
+    text-align:center;
+    border-radius:5px;               /* Abgerundete Ecken */
+    display:flex;                    /* Flexbox-Layout */
+    justify-content:center;          /* Horizontale Zentrierung des Inhalts */
+    align-items:center;              /* Vertikale Zentrierung des Inhalts */
+    flex-direction:column;           /* Inhalt von oben nach unten angeordnet */
+    opacity:0;                       /* Standardmäßig unsichtbar */
+    pointer-events:none;             /* Deaktiviert Klicks und andere Eingaben */
+    transform:translate(-50% , -50%) scale(0.9);  /* Zentriert und leicht verkleinert */
+}
+
+/* Stil für das Icon in der Ergebnis-Box */
+.result-box .icon{
+    font-size:100px;                 /* Große Schriftgröße */
+    color:#ffd700;                   /* Goldene Farbe */
+    margin-bottom:10px;              /* Außenabstand nach unten */
+}
+
+/* Stil für das Bild des Icons in der Ergebnis-Box */
+.result-box .icon img{
+    width:100px;
+}
+
+/* Stil für den Abschlusstext in der Ergebnis-Box */
+.result-box .complete-text{
+    font-size:18px;
+    font-weight:500;
+}
+
+/* Stil für den Punktzahltext in der Ergebnis-Box */
+.result-box .score-text span{
+    display:flex;
+    font-size:16px;
+    font-weight:500;
+    margin:10px 0;                   /* Außenabstand oben und unten */
+}
+
+/* Spezieller Stil für den Absatz im Punktzahltext */
+.score-text span p{
+    font-weight:600;
+    padding:0 3px;
+}
+
+/* Stil für die Schaltflächen in der Ergebnis-Box */
+.result-box .buttons{
+    display:flex;                    /* Flexbox-Layout */
+    margin:15px 0;                   /* Außenabstand oben und unten */
+}
+
+/* Grundstil für die Schaltflächen in der Ergebnis-Box */
+.result-box .buttons button{
+    margin:0 10px;                   /* Außenabstand rechts und links */
+    border:1px solid transparent;
+    font-size:16px;
+    font-weight:500;
+    height:40px;
+    width:100px;
+    color:#fff;                      /* Weiße Schriftfarbe */
+    border-radius:5px;               /* Abgerundete Ecken */
+    transition:all 0.25s ease;       /* Glatter Übergang für alle Eigenschaften */
+    font-family:'Varela Round', sans-serif;
+}
+
+/* Stil für die "Beenden"-Schaltfläche in der Ergebnis-Box */
+.result-box .buttons button.exit{
+    background:#fff;                 /* Weißer Hintergrund */
+    border:1px solid #258eff;
+    color:#258eff;                   /* Blaue Schriftfarbe */
+}
+
+/* Stil für die "Beenden"-Schaltfläche in der Ergebnis-Box beim Darüberfahren */
+.result-box .buttons button.exit:hover{
+    background:#258eff;              /* Blauer Hintergrund */
+    color:#fff;                      /* Weiße Schriftfarbe */
+}
+
+/* Stil für die "Neustart"-Schaltfläche in der Ergebnis-Box */
+.result-box .buttons button.restart{
+    background-color:#007bff;        /* Blauer Hintergrund */
+    color:#fff;                      /* Weiße Schriftfarbe */
+}
+
+/* Stil für die "Neustart"-Schaltfläche in der Ergebnis-Box beim Darüberfahren */
+.result-box .buttons button.restart:hover{
+    background:#258eff;              /* Blauer Hintergrund beim Darüberfahren */
+}
+
+/* Stil für das Sternchen-Icon */
+.fa-asterisk{
+    font-size:10px;
+    color:red;                       /* Rote Farbe */
+}
+
+/* Stil für das Kronen-Icon */
+.fa-crown{
+    color:#ffb500;                   /* Goldene Farbe */
+}

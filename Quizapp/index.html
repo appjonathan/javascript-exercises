@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Titel der Webseite -->
+        <title>Quiz-App</title>
+
+        <!-- Einbindung von externen Icons durch Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Einbindung von weiteren Icons durch Boxicons -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- Einbindung der eigenen Stylesheet-Datei -->
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+        <!-- Meta-Informationen für responsive Design und Zeichencodierung -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    </head>
+    <body>
+        <!-- Start-Button zum Beginnen des Quiz -->
+        <div class="start"><button>Start Quiz</button></div>
+        
+        <!-- Informationsbox mit den Regeln des Quiz -->
+        <div class="info-box">
+            <div class="info-title">Rules of this quiz</div>
+            <div class="info-list">
+                <!-- Die einzelnen Regeln des Quiz -->
+                <div class = "info"><i class = "fas fa-asterisk"></i>  You only have <span>10 seconds</span> for each question.</div>
+                <div class = "info"><i class = "fas fa-asterisk"></i>  You have to select an option before you can go to the next question.</div>
+                <div class = "info"><i class = "fas fa-asterisk"></i>  There's no going back after selecting an option.</div>
+                <div class = "info"><i class = "fas fa-asterisk"></i>  You cannot select an option once the timer goes off.</div>
+                <div class = "info"><i class = "fas fa-asterisk"></i>  You cannot exit the quiz while playing.</div>
+                <!-- Buttons zum Verlassen oder Fortfahren des Quiz -->
+                <div class="buttons">
+                  <button class="quit">Exit Quiz</button>
+                  <button class="cont">Continue</button>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Hauptbereich des Quiz -->
+      <div class="quiz-box">
+          <!-- Header des Quiz mit Titel, Timer und Fortschrittsanzeige -->
+          <header>
+              <div class="title">Quiz App</div>
+              <div class="timer">
+                  <div class="text">Time left </div>
+                  <div class="sec">10</div>
+              </div>
+              <div class="timeline"></div>
+          </header>
+              
+          <!-- Fragebereich des Quiz -->
+          <section>
+              <div class="question">
+                  <!-- Hier wird die Frage eingefügt -->
+              </div>
+              <div class="option-list">
+                  <div class="option">
+                      <!-- Hier werden die Antwortoptionen eingefügt -->
+                  </div> 
+              </div>
+          </section>
+                  
+          <!-- Footer des Quiz mit Fragezähler und "Weiter"-Button -->
+          <footer>
+              <div class="total-questions">
+                  <!-- Hier wird der Fragezähler eingefügt -->
+              </div>
+              <button class="next">Next</button>
+          </footer>   
+      </div>
+      
+      <!-- Ergebnisbereich des Quiz -->
+      <div class="result-box">
+          <div class="icon">
+              <img src="https://www.dropbox.com/s/2b81pov6c4nuev3/crown.png?dl=1">
+          </div>
+          <div class="complete-text">You have completed the quiz !</div>
+          <div class="score-text">
+              <!-- Hier wird der Punktestand eingefügt -->
+          </div>
+          <div class="buttons">
+              <button class="restart">Replay</button>
+              <button class="exit">Exit</button>
+          </div>  
+      </div>
+     
+      <!-- Einbindung der externen JavaScript-Dateien -->
+      <script src="app.js"></script>
+      <script src="questions.js"></script>
+  </body>
+</html>
