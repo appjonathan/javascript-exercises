@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta-Informationen für responsive Design und Zeichencodierung -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+        <title>Wetter-App</title>
+        <link rel="stylesheet" href="css/styles.css"/> <!-- static path for public folder is already set in app.js -->
+    </head>
+    <body>
+        <div class="main-content">
+            <article class="widget">
+                <div class="menu" id="menuPlaceholder"></div>
+                <form class="weatherLocation"><input class="input-field" placeholder="Stadt eintragen" type = "text"/><button class="search-button">Suchen</button>
+                </form>
+                <div class="icon-and-weatherInfo">
+                    <div class="weatherIcon"><i></i></div>
+                    <div class="weatherInfo">
+                         <div class="temperature"><span></span></div>
+                         <div class="tempElementCelsius"><span></span></div>
+                         <div class="tempElementFahrenheit"><span></span></div>
+                        <div class="weatherCondition"></div> 
+                        <div class="humidity"></div>
+                        <div class="atmospherePressure"></div> 
+                        <div class="windSpeed"></div> 
+                        <button class="toggleTemp-button" style="display: none;">Fahrenheit</button>
+                    </div>
+                </div>
+                <div class="place"></div>
+                <div class="date"></div>
+                <div class="favorite-places">
+                    <h3>Lieblingsorte</h3>
+                    <ul class="placesList" id="placesList"></ul>
+                </div>
+            </article>
+        </div>
+        <script src="js/app.js"></script>
+    </body>
+</html>
