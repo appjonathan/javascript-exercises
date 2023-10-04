@@ -4,7 +4,6 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  background-image: url('/mein-wetter/styles/dunkle-wolken.jpg'); /* Hintergrundbild-Pfad relativ zum öffentlichen Verzeichnis */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -12,8 +11,8 @@
 
 /* Überschrift */
 h1 {
-  font-size: 32px;
-  color: #5f1af5;
+  font-size: 100px;
+  color: #6d2aff;
   margin: 0; /* Entferne den unteren Rand */
   text-align: center; /* Zentriere horizontal */
   padding-top: 20px; /* Platz oberhalb der Überschrift hinzufügen */
@@ -24,15 +23,6 @@ form {
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
-}
-
-/* Wetterinformationen */
-.weather-info {
-  background-color: #0ceb48;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  text-align: center; /* Zentriere den Text horizontal in der Wetterinfo */
 }
 
 h2 {

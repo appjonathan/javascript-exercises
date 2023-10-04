@@ -14,7 +14,7 @@ export default function Home() {
   const fetchWetter = (e) => {
     e.preventDefault();
     setLoading(true);
-    const apiKey = "58533987139e19af3f58c65ebe0862b2";
+    const apiKey = "3a621ee35fd8fd2a3e694094e66003a5";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     axios.get(url)
       .then((response) => {
@@ -30,7 +30,7 @@ export default function Home() {
       <Head>
         {/* ... */}
       </Head>
-      <h1>Meine Wetter App</h1>
+      <h1>weather</h1>
       <br></br>
       <br></br>
       <form onSubmit={fetchWetter}>
