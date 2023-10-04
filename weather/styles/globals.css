@@ -18,7 +18,6 @@ h1 {
   padding-top: 20px; /* Platz oberhalb der Überschrift hinzufügen */
 }
 
-/* Formular */
 form {
   display: flex;
   justify-content: center;
